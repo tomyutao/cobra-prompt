@@ -1,6 +1,7 @@
 package cobraprompt
 
 import (
+	"fmt"
 	"os"
 	"strings"
 
@@ -44,9 +45,13 @@ func (co CobraPrompt) Run() {
 	co.prepare()
 	p := prompt.New(
 		func(in string) {
-			promptArgs := strings.Fields(in)
-			os.Args = append([]string{os.Args[0]}, promptArgs...)
-			co.RootCmd.Execute()
+			promptArgs, err := parseCommandLine(in)
+			if err != nil {
+				fmt.Println(err)
+			} else {
+				os.Args = append([]string{os.Args[0]}, promptArgs...)
+				co.RootCmd.Execute()
+			}
 		},
 		func(d prompt.Document) []prompt.Suggest {
 			return findSuggestions(co, d)
