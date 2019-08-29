@@ -27,6 +27,15 @@ type CobraPrompt struct {
 
 	// ResetFlagsFlag will add a new persistent flag to RootCmd. This flags can be used to turn off flags value reset
 	ResetFlagsFlag bool
+
+	// Option to show hidden command
+	ShowHiddenCommand bool
+
+	// Show hidden flags
+	ShowHiddenFlag bool
+
+	// Show aliases of commands
+	ShowAlias bool
 }
 
 // Run will automatically generate suggestions for all cobra commands and flags defined by RootCmd
@@ -68,7 +77,7 @@ func findSuggestions(co CobraPrompt, d prompt.Document) []prompt.Suggest {
 		if flag.Changed && !resetFlags {
 			flag.Value.Set(flag.DefValue)
 		}
-		if flag.Hidden {
+		if co.ShowHiddenFlag == false && flag.Hidden {
 			return
 		}
 		if strings.HasPrefix(d.GetWordBeforeCursor(), "--") {
@@ -83,8 +92,13 @@ func findSuggestions(co CobraPrompt, d prompt.Document) []prompt.Suggest {
 
 	if command.HasAvailableSubCommands() {
 		for _, c := range command.Commands() {
-			if !c.Hidden {
+			if co.ShowHiddenCommand && c.Hidden == false {
 				suggestions = append(suggestions, prompt.Suggest{Text: c.Name(), Description: c.Short})
+				if co.ShowAlias {
+					for _, alias := range c.Aliases {
+						suggestions = append(suggestions, prompt.Suggest{Text: alias, Description: c.Short})
+					}
+				}
 			}
 		}
 	}
