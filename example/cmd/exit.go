@@ -7,8 +7,9 @@ import (
 )
 
 var exitCmd = &cobra.Command{
-	Use:   "exit",
-	Short: "Exit prompt",
+	Use:     "exit",
+	Short:   "Exit prompt",
+	Aliases: []string{"quit", "kill"},
 	Run: func(cmd *cobra.Command, args []string) {
 		os.Exit(0)
 	},

@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/c-bata/go-prompt"
-	"github.com/stromland/cobra-prompt"
-	"github.com/stromland/cobra-prompt/example/cmd"
+	cobraprompt "github.com/tomyutao/cobra-prompt"
+	"github.com/tomyutao/cobra-prompt/example/cmd"
 )
 
 func main() {
@@ -11,6 +11,9 @@ func main() {
 		RootCmd:                cmd.RootCmd,
 		DynamicSuggestionsFunc: handleDynamicSuggestions,
 		ResetFlagsFlag:         true,
+		ShowAlias:              true,
+		ShowHiddenFlag:         true,
+		ShowHiddenCommand:      true,
 		GoPromptOptions: []prompt.Option{
 			prompt.OptionTitle("cobra-prompt-example"),
 			prompt.OptionPrefix(">(^'^)> "),

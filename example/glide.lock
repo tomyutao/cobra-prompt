@@ -1,12 +1,17 @@
-hash: d2e725dd307d23ccc1e46e33666fc758cf82e3f07394b1288c6f1fd7ea9f2ce3
-updated: 2018-11-23T23:37:31.361238026+01:00
+hash: d9868ca930ee7aed03a51e6724fc2f1c3ea9fe1762efd52ea9bc9c12a6055a29
+updated: 2019-08-29T00:16:16.556587-04:00
 imports:
 - name: github.com/c-bata/go-prompt
-  version: b6d2b439b9e406f5438c1afd567b45bd4977b205
+  version: 0f95e1d1de2e6f0119b69fd4d79967e4b64fa21b
+  subpackages:
+  - internal/bisect
+  - internal/debug
+  - internal/strings
+  - internal/term
 - name: github.com/fsnotify/fsnotify
-  version: ccc981bf80385c528a65fbfdd49bf2d8da22aa23
+  version: 1485a34d5d5723fea214f5710708e19a831720e4
 - name: github.com/hashicorp/hcl
-  version: 65a6292f0157eff210d03ed1bf6c59b190b8b906
+  version: cf7d376da96d9cecec7c7483cec2735efe54a410
   subpackages:
   - hcl/ast
   - hcl/parser
@@ -20,50 +25,56 @@ imports:
 - name: github.com/inconshreveable/mousetrap
   version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
 - name: github.com/magiconair/properties
-  version: 7c38529aac7222391b7a2661365177a97e21b998
+  version: de8848e004dd33dc07a2947b3d76f618a7fc7ef1
 - name: github.com/mattn/go-colorable
-  version: efa589957cd060542a26d2dd7832fd6a6c6c3ade
+  version: 388941e3ea99c461d2bc2747eaf27741b6dda096
 - name: github.com/mattn/go-isatty
-  version: 3fb116b820352b7f0c281308a4d6250c22d94e27
+  version: bf9a1dea1961e1d831824fb135332bfb8c10e8b8
 - name: github.com/mattn/go-runewidth
-  version: c88d7e5f2e24de48a200a2655ac8a0910be9a0f7
+  version: 703b5e6b11ae25aeb2af9ebb5d5fdf8fa2575211
 - name: github.com/mattn/go-tty
-  version: 13ff1204f104d52c3f7645ec027ecbcf9026429e
+  version: 523744f0485951f2b177ecc932e7d0e865f8fc02
 - name: github.com/mitchellh/go-homedir
-  version: ae18d6b8b3205b561c79e8e5f69bff09736185f4
+  version: af06845cf3004701891bf4fdb884bfe4920b3727
 - name: github.com/mitchellh/mapstructure
   version: 3536a929edddb9a5b34bd6861dc4a9647cb459fe
 - name: github.com/pelletier/go-toml
-  version: b56e1b27b494551f2dec9703efa22e3ce23285eb
+  version: 3ded2e09ee1b5e399e46206e02ac46bae2072dc4
 - name: github.com/pkg/term
-  version: 27bbf2edb814447174b568fc0875a8e0c1608fae
+  version: aa71e9d9e942418fbb97d80895dcea70efed297c
   subpackages:
   - termios
 - name: github.com/spf13/afero
-  version: d40851caa0d747393da1ffb28f7f9d8b4eeffebd
+  version: 588a75ec4f32903aa5e39a2619ba6a4631e28424
   subpackages:
   - mem
 - name: github.com/spf13/cast
-  version: 8c9545af88b134710ab1cd196795e7f2388358d7
+  version: c01685bb8421cecb276fa517e91f757215f980b3
 - name: github.com/spf13/cobra
-  version: fe5e611709b0c57fa4a89136deaa8e1d4004d053
+  version: b80588d523ec50c7fee20218426cf2ff70920f06
 - name: github.com/spf13/jwalterweatherman
   version: 94f6ae3ed3bceceafa716478c5fbf8d29ca601a1
 - name: github.com/spf13/pflag
-  version: aea12ed6721610dc6ed40141676d7ab0a1dac9e9
+  version: 972238283c0625cf3e881de7699ba8f2524c340a
 - name: github.com/spf13/viper
-  version: 06c7c0d9b3c7cfca13deff6e353a052e08828ad4
+  version: e697d557b7f549ddf91098cef2ad6e92176dbcdf
 - name: github.com/stromland/cobra-prompt
-  version: 90825b40bda57c607b18da268e2b69134e1a4407
+  version: 940a0a2bd0d307599c5226d7e292d8850fedd049
+- name: github.com/subosito/gotenv
+  version: 422ef8095f112cfaf9f40c368e0b9ae8c0714cfb
+- name: github.com/tomyutao/cobra-prompt
+  version: c894f64fc8dc89a69a353015c608e93e3925f6d8
+  subpackages:
+  - example/cmd
 - name: golang.org/x/sys
-  version: 62eef0e2fa9b2c385f7b2778e763486da6880d37
+  version: c7b8b68b14567162c6602a7c5659ee0f26417c18
   subpackages:
   - unix
 - name: golang.org/x/text
-  version: 6f44c5a2ea40ee3593d98cdcc905cc1fdaa660e2
+  version: 342b2e1fbaa52c93f31447ad2c6abc048c63e475
   subpackages:
   - transform
   - unicode/norm
 - name: gopkg.in/yaml.v2
-  version: 5420a8b6744d3b0345ab293f6fcba19c978f1183
+  version: 51d6538a90f86fe93ac480b35f37b2be17fef232
 testImports: []
