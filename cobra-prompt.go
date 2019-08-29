@@ -70,7 +70,7 @@ func (co CobraPrompt) prepare() {
 
 func findSuggestions(co CobraPrompt, d prompt.Document) []prompt.Suggest {
 	command := co.RootCmd
-	args := strings.Fields(d.CurrentLine())
+	args, _ := parseCommandLine(d.CurrentLine())
 
 	if found, _, err := command.Find(args); err == nil {
 		command = found
@@ -97,7 +97,7 @@ func findSuggestions(co CobraPrompt, d prompt.Document) []prompt.Suggest {
 
 	if command.HasAvailableSubCommands() {
 		for _, c := range command.Commands() {
-			if co.ShowHiddenCommand && c.Hidden == false {
+			if co.ShowHiddenCommand || c.Hidden == false {
 				suggestions = append(suggestions, prompt.Suggest{Text: c.Name(), Description: c.Short})
 				if co.ShowAlias {
 					for _, alias := range c.Aliases {
